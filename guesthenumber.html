@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(243, 242, 242);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .main{
+            background-color: white;
+            padding: 20px;
+            border: none;
+            border-radius: 15px;
+        }
+        .heading{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 700;
+            margin-top: 0px;
+        }
+        .paragraph{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 500;
+            font-size: large;
+            text-align: center;
+        }
+        input{
+            width: 90%;
+            height: 30px;
+        }
+        .addbtn{
+            background-color: rgb(5, 5, 160);
+            color: white;
+            margin-top: 10px;
+            width: 20%;
+            height: 30px;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main" id="mains">
+        <h1 class="heading">Number Guessing Game</h1>
+        <p class="paragraph">Guess a number between 1 to 10</p>
+        <input type="text" name="Calculator" id="display" placeholder="Enter your guess">
+        <button class="addbtn" id="buttons">Check</button>
+        <p class="last" id="paraLast"></p>
+  </div>
+  <script>
+    let superBox = document.getElementById("mains")
+    let input = document.getElementById("display");
+    let addbtn = document.getElementById("buttons");
+    let messagePara = document.getElementById("paraLast");
+
+    let randomNumber = Math.floor(Math.random()*10)+1;
+
+    addbtn.addEventListener("click",()=>{
+        
+        let userGuess = Number(input.value) ;
+        messagePara.innerText="";
+
+        if(userGuess >= 1 && userGuess <= 10&&!isNaN(userGuess)){
+        if(userGuess===randomNumber){
+            messagePara.innerText=  "correct"
+        }
+        else if (userGuess < randomNumber){
+            messagePara.innerText="low"
+        }
+        else if (userGuess > randomNumber){
+            messagePara.innerText ="high"
+        }
+        else {
+            messagePara.innerText ="ENter the Value"
+        }
+    }
+    })
+</script>
+</body>
+</html>
