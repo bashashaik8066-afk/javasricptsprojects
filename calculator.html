@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            background:linear-gradient(150deg, blue, blueviolet);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .main{
+            background-color: black;
+            border-radius: 10px;
+            height: 65%;
+            width: 28%;
+            padding: 20px;
+        }
+        .main input{
+            width: 100%;
+            height: 12%;
+            background-color: rgb(44, 44, 44);
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            text-align: right;
+            color: white;
+            font-size: 22px;
+
+        }
+        .col{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 10px;
+            height: 15%;
+            margin-bottom: 10px;
+        }
+       .main button{
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 20px;
+       }
+       button:hover{
+        transform: scale(1.05);
+       }
+       .reduce{
+        background-color: rgb(226, 5, 5);
+       }
+       .op{
+        background-color: orange;
+       }
+       .num{
+        background-color: blue;
+       }
+       .fouth-row{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        height: 15%;
+        gap: 10px;
+       }
+       .final-answer{
+        background-color: rgb(8, 235, 8);
+        grid-column: span 2;
+       }
+
+    </style>
+
+</head>
+<body>
+    <div class="main">
+        <input type="text" name="Calculator" id="display" disabled>
+        <div class="col">
+        <button class="reduce" onclick="clearInput()">C</button>
+        <button class="reduce" onclick="delInput()">DEL</button>
+        <button class="op" onclick="addbtn('/')">/</button>
+        <button class="op"onclick="addbtn('*')">*</button>
+        </div>
+
+        <div class="col">
+        <button class="num"onclick="addbtn('9')">9</button>
+        <button class="num"onclick="addbtn('8')">8</button>
+        <button class="num"onclick="addbtn('7')">7</button>
+        <button class="op" onclick="addbtn('+')">+</button>
+        </div>
+
+        <div class="col">
+        <button class="num"onclick="addbtn('6')">6</button>
+        <button class="num"onclick="addbtn('5')">5</button>
+        <button class="num"onclick="addbtn('4')">4</button>
+        <button class="op"onclick="addbtn('-')">-</button>
+        </div>
+
+        <div class="col">
+        <button class="num"onclick="addbtn('3')">3</button>
+        <button class="num"onclick="addbtn('2')">2</button>
+        <button class="num"onclick="addbtn('1')">1</button>
+        </div>
+
+        <div class="fouth-row">
+        <button class="final-answer"onclick="calculation()">=</button>
+        <button class="num"onclick="addbtn('0')">0</button>
+        <button class="num"onclick="addbtn('.')">.</button>
+        </div>
+    </div>
+    <script>
+        let display = document.getElementById("display");
+
+        function addbtn(value){
+            display.value += value;
+        }
+        function clearInput(){
+            display.value = "";
+        }
+        function delInput(){
+            display.value = display.value.slice(0,-1)
+        }
+        function calculation(){
+            try{
+                display.value = eval(display.value);
+
+            }
+            catch{
+                display.value ="Error";
+            }
+        }
+    </script>
+</body>
+</html>

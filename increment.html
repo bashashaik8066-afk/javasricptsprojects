@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <h1>Increment or Decrement Numbers</h1>
+        <input type="text" id="inputBox" >
+        <button id="button">+</button>
+        <button id="button1">-</button>
+        <button id="button2">@</button>
+    </div>
+    <script>
+        let box = document.getElementById("main");
+        let input = document.getElementById("inputBox");
+
+        let addbtn = document.getElementById("button").addEventListener("click",()=>{
+            text = Number(input.value) 
+            input.value = text+1;
+        })
+
+        let decbtn = document.getElementById("button1").addEventListener("click",()=>{
+            input.value = text-1;
+        })
+
+        let rembtn = document.getElementById("button2").addEventListener("click",()=>{
+            input.value=0;
+        })
+
+    </script>
+</body>
+</html>
